@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <!-- <script src="../lib/hidpi-canvas-polyfill.js"></script> -->
+        <script src="./lib/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+        <canvas id="canvas" width="600" height="600"></canvas>
+        <!-- <input type="text" id="a">A</input>
+        <input type="text" id="b">B</input> -->
+        <script>
+            var my_canvas = document.getElementById('canvas');
+            var clientWidth = my_canvas.width;
+            var clientHeight = my_canvas.height;
+            var context = my_canvas.getContext('2d');
+            var historyA = 1, historyB = 1;
+            function ParamEllipse(context, x, y, a, b)
+            {
+            //max是等于1除以长轴值a和b中的较大者
+            //i每次循环增加1/max，表示度数的增加
+            //这样可以使得每次循环所绘制的路径（弧线）接近1像素
+            var step = (a > b) ? 1 / a : 1 / b;
+            // context.clearRect(0,0,clientWidth,clientHeight);
+            context.beginPath();
+            context.moveTo(x + a, y); //从椭圆的左端点开始绘制
+            for (var i = 0; i < 2 * Math.PI; i += step)
+            {
+                //参数方程为x = a * cos(i), y = b * sin(i)，
+                //参数为i，表示度数（弧度）
+                context.lineTo(x + a * Math.cos(i), y + b * Math.sin(i));
+            }
+            context.closePath();
+            context.stroke();
+            };
+            function paramCurve(context, px0, py0, px1, py1, px2, py2, px3, py3){
+                context.beginPath();
+                context.moveTo(px0, py0); 
+                context.bezierCurveTo(px1, py1, px2, py2, px3, py3);
+                // context.closePath();
+                context.stroke(); 
+            }
+
+            /**    (ul)          (ur)
+             *     +-------------+
+             *     | \    /\    /|
+             *     |  \  /  \  / |
+             *     |   \/    \/  |
+             *     |   /\    /\  |     
+             *     |  /  \  /  \ |     
+             *     | /    \/    \|     
+             *     +-------------+
+             *     (dl)          (dr)
+             *  基于ul ur dl dr 四个点的双曲线
+             * */ 
+            function paramHyperbel(context,upLeft, upRight, downLeft, downRight, offsetCenter){
+                var center = {} 
+                center.y = (upLeft.y + downLeft.y) / 2;
+                center.x = (downRight.x + downLeft.x) / 2;
+                // 上曲线
+                paramCurve(context , 
+                    upLeft.x, upLeft.y, 
+                    center.x + offsetCenter.x, center.y+ offsetCenter.y,
+                    center.x + offsetCenter.x, center.y+ offsetCenter.y,
+                    upRight.x, upRight.y)
+                //下曲线
+                paramCurve(context , 
+                    downLeft.x, downLeft.y, 
+                    center.x + offsetCenter.x, center.y- offsetCenter.y,
+                    center.x + offsetCenter.x, center.y- offsetCenter.y,
+                    downRight.x, downRight.y)
+            }
+            $('#a').change(function(){
+                console.log(this.value)
+                var a = this.value|0
+                resize(context, a)
+            })
+            $('#b').change(function(){
+                var b = this.value|0
+                resize(context, null, b)
+            })
+            function drawEarth(x, y, maxA, maxB ,diff){
+                for(var i = 0; i <=maxA; i += diff){
+                    ParamEllipse(context, x, y, i, maxB, diff)
+                }
+                for(var j = 0; j <=maxB; j += diff*2){
+                    ParamEllipse(context, x, y, maxA, j, diff)
+                }
+            } 
+            drawEarth(clientWidth/2, clientHeight/2, 300, 180, 5)
+            // paramCurve(context, 0,300, 300,0, 300,0, 600,300)
+            // paramCurve(context, 0,300, 300,10, 300,10, 600,300)
+            // paramHyperbel(context,{x:0,y:0},{x:300,y:0},{x:0,y:300},{x:300,y:300},{x:0,y:10})
+        </script>
+    </body>
+</html>

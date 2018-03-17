@@ -1,0 +1,863 @@
+{
+  "nested": {
+    "proto2": {
+      "nested": {
+        "client": {
+          "nested": {
+            "SCS000000": {
+              "fields": {
+                "video": {
+                  "type": "uint32",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000000": {
+              "fields": {
+                "serverTime": {
+                  "type": "uint32",
+                  "id": 1
+                }
+              }
+            },
+            "SCS000001": {
+              "fields": {
+                "key": {
+                  "type": "string",
+                  "id": 1
+                },
+                "roomId": {
+                  "rule": "required",
+                  "type": "int64",
+                  "id": 2
+                },
+                "oemId": {
+                  "type": "uint32",
+                  "id": 3
+                },
+                "reconnect": {
+                  "rule": "required",
+                  "type": "bool",
+                  "id": 4
+                }
+              }
+            },
+            "SCS000035": {
+              "fields": {
+                "liveing": {
+                  "type": "bool",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000035": {
+              "fields": {
+                "status": {
+                  "type": "uint32",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000001": {
+              "fields": {
+                "result": {
+                  "rule": "required",
+                  "type": "sint32",
+                  "id": 1
+                },
+                "players": {
+                  "rule": "repeated",
+                  "type": "PBPlayer",
+                  "id": 2
+                },
+                "forbidSpeak": {
+                  "type": "uint32",
+                  "id": 3
+                },
+                "charm": {
+                  "type": "sint64",
+                  "id": 4
+                },
+                "serverTime": {
+                  "type": "uint32",
+                  "id": 5
+                },
+                "roomStatus": {
+                  "type": "sint32",
+                  "id": 6
+                },
+                "hotHallIndex": {
+                  "type": "sint32",
+                  "id": 7
+                },
+                "kickoutTime": {
+                  "type": "uint32",
+                  "id": 8
+                },
+                "count": {
+                  "type": "uint32",
+                  "id": 9
+                }
+              }
+            },
+            "SCS000002": {
+              "fields": {}
+            },
+            "SSC000002": {
+              "fields": {
+                "type": {
+                  "type": "sint32",
+                  "id": 1
+                },
+                "msg": {
+                  "type": "string",
+                  "id": 2
+                }
+              }
+            },
+            "PBPlayer": {
+              "fields": {
+                "id": {
+                  "type": "sint64",
+                  "id": 1
+                },
+                "name": {
+                  "type": "string",
+                  "id": 2
+                },
+                "level": {
+                  "type": "uint32",
+                  "id": 3
+                },
+                "headImgSmall": {
+                  "type": "string",
+                  "id": 4
+                },
+                "headImgMid": {
+                  "type": "string",
+                  "id": 5
+                },
+                "headImgBig": {
+                  "type": "string",
+                  "id": 6
+                },
+                "imgState": {
+                  "type": "uint32",
+                  "id": 7
+                },
+                "exp": {
+                  "type": "uint32",
+                  "id": 8
+                },
+                "createTime": {
+                  "type": "sint64",
+                  "id": 9
+                },
+                "updateTime": {
+                  "type": "sint64",
+                  "id": 10
+                },
+                "description": {
+                  "type": "string",
+                  "id": 11
+                },
+                "gender": {
+                  "type": "uint32",
+                  "id": 12
+                },
+                "place": {
+                  "type": "string",
+                  "id": 13
+                },
+                "follow": {
+                  "type": "uint32",
+                  "id": 14
+                },
+                "follower": {
+                  "type": "uint32",
+                  "id": 15
+                },
+                "totalOnlineTime": {
+                  "type": "sint64",
+                  "id": 16
+                },
+                "totalMicTime": {
+                  "type": "sint64",
+                  "id": 17
+                },
+                "topRanking": {
+                  "type": "uint32",
+                  "id": 18
+                },
+                "weekTopRanking": {
+                  "type": "uint32",
+                  "id": 19
+                },
+                "guardLevle": {
+                  "type": "uint32",
+                  "id": 20
+                },
+                "audioChannelId": {
+                  "type": "sint64",
+                  "id": 21
+                },
+                "videoChannelId": {
+                  "type": "sint64",
+                  "id": 22
+                },
+                "maxChannelId": {
+                  "type": "sint64",
+                  "id": 23
+                },
+                "superUid": {
+                  "type": "sint64",
+                  "id": 24
+                },
+                "anchor": {
+                  "type": "bool",
+                  "id": 25
+                },
+                "nobleId": {
+                  "type": "uint32",
+                  "id": 26
+                },
+                "car": {
+                  "rule": "repeated",
+                  "type": "PBCar",
+                  "id": 27
+                },
+                "medal": {
+                  "rule": "repeated",
+                  "type": "PBMedal",
+                  "id": 28
+                }
+              }
+            },
+            "PBCar": {
+              "fields": {
+                "endTime": {
+                  "type": "sint64",
+                  "id": 1
+                },
+                "goodsId": {
+                  "type": "uint32",
+                  "id": 2
+                },
+                "isUse": {
+                  "type": "uint32",
+                  "id": 3
+                }
+              }
+            },
+            "PBMedal": {
+              "fields": {
+                "endTime": {
+                  "type": "sint64",
+                  "id": 1
+                },
+                "goodsId": {
+                  "type": "uint32",
+                  "id": 2
+                },
+                "isUse": {
+                  "type": "uint32",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000004": {
+              "fields": {
+                "player": {
+                  "rule": "repeated",
+                  "type": "PBPlayer",
+                  "id": 1
+                },
+                "players": {
+                  "rule": "repeated",
+                  "type": "PBPlayer",
+                  "id": 2
+                },
+                "count": {
+                  "type": "sint64",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000005": {
+              "fields": {
+                "playerId": {
+                  "rule": "repeated",
+                  "type": "sint64",
+                  "id": 1,
+                  "options": {
+                    "packed": false
+                  }
+                },
+                "players": {
+                  "rule": "repeated",
+                  "type": "PBPlayer",
+                  "id": 2
+                },
+                "count": {
+                  "type": "sint64",
+                  "id": 3
+                }
+              }
+            },
+            "SCS000006": {
+              "fields": {
+                "type": {
+                  "type": "sint32",
+                  "id": 1
+                },
+                "content": {
+                  "type": "string",
+                  "id": 2
+                },
+                "playerId": {
+                  "type": "sint64",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000006": {
+              "fields": {
+                "player": {
+                  "type": "PBPlayer",
+                  "id": 1
+                },
+                "chat": {
+                  "type": "SCS000006",
+                  "id": 2
+                }
+              }
+            },
+            "SCS000007": {
+              "fields": {
+                "start": {
+                  "type": "sint32",
+                  "id": 1
+                },
+                "end": {
+                  "type": "sint32",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000007": {
+              "fields": {
+                "players": {
+                  "rule": "repeated",
+                  "type": "PBPlayer",
+                  "id": 1
+                },
+                "start": {
+                  "type": "sint32",
+                  "id": 2
+                },
+                "end": {
+                  "type": "sint32",
+                  "id": 3
+                }
+              }
+            },
+            "SCS000009": {
+              "fields": {
+                "goodsId": {
+                  "rule": "required",
+                  "type": "uint32",
+                  "id": 1
+                },
+                "goodsCount": {
+                  "rule": "required",
+                  "type": "uint32",
+                  "id": 2
+                },
+                "goodsIndex": {
+                  "type": "uint32",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000009": {
+              "fields": {
+                "code": {
+                  "rule": "required",
+                  "type": "sint32",
+                  "id": 1
+                }
+              }
+            },
+            "SCS000010": {
+              "fields": {
+                "dl": {
+                  "rule": "required",
+                  "type": "DoLike",
+                  "id": 1
+                }
+              }
+            },
+            "DoLike": {
+              "fields": {
+                "color": {
+                  "rule": "required",
+                  "type": "int32",
+                  "id": 1
+                },
+                "num": {
+                  "rule": "required",
+                  "type": "sint32",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000011": {
+              "fields": {
+                "dl": {
+                  "rule": "repeated",
+                  "type": "DoLike",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000012": {
+              "fields": {
+                "presentGift": {
+                  "type": "SCS000009",
+                  "id": 1
+                },
+                "player": {
+                  "type": "PBPlayer",
+                  "id": 2
+                },
+                "charm": {
+                  "type": "sint64",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000013": {
+              "fields": {
+                "roomId": {
+                  "rule": "required",
+                  "type": "int64",
+                  "id": 1
+                },
+                "managerId": {
+                  "type": "sint64",
+                  "id": 2
+                },
+                "managerName": {
+                  "type": "string",
+                  "id": 3
+                },
+                "playerId": {
+                  "type": "sint64",
+                  "id": 4
+                },
+                "playerName": {
+                  "type": "string",
+                  "id": 5
+                }
+              }
+            },
+            "SSC000015": {
+              "fields": {
+                "roomId": {
+                  "rule": "required",
+                  "type": "int64",
+                  "id": 1
+                },
+                "managerId": {
+                  "type": "sint64",
+                  "id": 2
+                },
+                "managerName": {
+                  "type": "string",
+                  "id": 3
+                },
+                "playerId": {
+                  "type": "sint64",
+                  "id": 4
+                },
+                "playerName": {
+                  "type": "string",
+                  "id": 5
+                },
+                "times": {
+                  "type": "uint32",
+                  "id": 6
+                }
+              }
+            },
+            "SCS000016": {
+              "fields": {
+                "content": {
+                  "rule": "required",
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000016": {
+              "fields": {
+                "code": {
+                  "rule": "required",
+                  "type": "sint32",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000017": {
+              "fields": {
+                "player": {
+                  "type": "PBPlayer",
+                  "id": 1
+                },
+                "msg": {
+                  "type": "SCS000016",
+                  "id": 2
+                },
+                "charm": {
+                  "type": "sint64",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000018": {
+              "fields": {
+                "type": {
+                  "type": "sint32",
+                  "id": 1
+                },
+                "content": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000019": {
+              "fields": {
+                "player": {
+                  "type": "PBPlayer",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000020": {
+              "fields": {
+                "id": {
+                  "type": "sint64",
+                  "id": 1
+                },
+                "top": {
+                  "type": "uint32",
+                  "id": 2
+                },
+                "type": {
+                  "type": "uint32",
+                  "id": 3
+                }
+              }
+            },
+            "SCS000021": {
+              "fields": {
+                "start": {
+                  "type": "sint32",
+                  "id": 1
+                },
+                "end": {
+                  "type": "sint32",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000021": {
+              "fields": {
+                "guardians": {
+                  "rule": "repeated",
+                  "type": "PBGuardian",
+                  "id": 1
+                },
+                "start": {
+                  "type": "sint32",
+                  "id": 2
+                },
+                "end": {
+                  "type": "sint32",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000022": {
+              "fields": {
+                "isGuardian": {
+                  "type": "sint32",
+                  "id": 1
+                }
+              }
+            },
+            "PBGuardian": {
+              "fields": {
+                "userId": {
+                  "type": "sint64",
+                  "id": 1
+                },
+                "nickname": {
+                  "type": "string",
+                  "id": 2
+                },
+                "headImg": {
+                  "type": "string",
+                  "id": 3
+                },
+                "guardLevel": {
+                  "type": "uint32",
+                  "id": 4
+                },
+                "endTime": {
+                  "type": "string",
+                  "id": 5
+                },
+                "endTimeStr": {
+                  "type": "string",
+                  "id": 6
+                },
+                "online": {
+                  "type": "uint32",
+                  "id": 7
+                }
+              }
+            },
+            "SCS000023": {
+              "fields": {
+                "guardLevel": {
+                  "type": "uint32",
+                  "id": 1
+                },
+                "guardMonth": {
+                  "type": "uint32",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000023": {
+              "fields": {
+                "code": {
+                  "rule": "required",
+                  "type": "sint32",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000024": {
+              "fields": {
+                "player": {
+                  "type": "PBPlayer",
+                  "id": 1
+                },
+                "guardLevel": {
+                  "type": "uint32",
+                  "id": 2
+                },
+                "charm": {
+                  "type": "sint64",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000025": {
+              "fields": {
+                "hotHallIndex": {
+                  "type": "sint32",
+                  "id": 1
+                }
+              }
+            },
+            "SCS000026": {
+              "fields": {
+                "isStart": {
+                  "type": "bool",
+                  "id": 1
+                },
+                "audioChannelId": {
+                  "type": "sint64",
+                  "id": 2
+                },
+                "videoChannelId": {
+                  "type": "sint64",
+                  "id": 3
+                },
+                "maxChannelId": {
+                  "type": "sint64",
+                  "id": 4
+                }
+              }
+            },
+            "SSC000026": {
+              "fields": {
+                "result": {
+                  "type": "sint32",
+                  "id": 1
+                },
+                "isStart": {
+                  "type": "bool",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000027": {
+              "fields": {
+                "num": {
+                  "type": "sint32",
+                  "id": 1
+                }
+              }
+            },
+            "SCS000028": {
+              "fields": {}
+            },
+            "SSC000028": {
+              "fields": {
+                "player": {
+                  "rule": "repeated",
+                  "type": "PBPlayer",
+                  "id": 1
+                }
+              }
+            },
+            "SCS000029": {
+              "fields": {
+                "isStart": {
+                  "type": "bool",
+                  "id": 1
+                },
+                "pid": {
+                  "type": "sint64",
+                  "id": 2
+                },
+                "audioChannelId": {
+                  "type": "sint64",
+                  "id": 3
+                },
+                "videoChannelId": {
+                  "type": "sint64",
+                  "id": 4
+                },
+                "maxChannelId": {
+                  "type": "sint64",
+                  "id": 5
+                }
+              }
+            },
+            "SSC000029": {
+              "fields": {
+                "result": {
+                  "type": "sint32",
+                  "id": 1
+                },
+                "isStart": {
+                  "type": "bool",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000030": {
+              "fields": {
+                "audioChannelId": {
+                  "type": "sint64",
+                  "id": 1
+                },
+                "videoChannelId": {
+                  "type": "sint64",
+                  "id": 2
+                },
+                "maxChannelId": {
+                  "type": "sint64",
+                  "id": 3
+                }
+              }
+            },
+            "SSC000031": {
+              "fields": {
+                "id": {
+                  "type": "sint64",
+                  "id": 1
+                }
+              }
+            },
+            "SCS000032": {
+              "fields": {
+                "start": {
+                  "type": "sint32",
+                  "id": 1
+                },
+                "end": {
+                  "type": "sint32",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000032": {
+              "fields": {
+                "players": {
+                  "rule": "repeated",
+                  "type": "PBPlayer",
+                  "id": 1
+                },
+                "start": {
+                  "type": "sint32",
+                  "id": 2
+                },
+                "end": {
+                  "type": "sint32",
+                  "id": 3
+                }
+              }
+            },
+            "SCS000033": {
+              "fields": {
+                "packageId": {
+                  "rule": "required",
+                  "type": "uint32",
+                  "id": 1
+                },
+                "goodsCount": {
+                  "rule": "required",
+                  "type": "uint32",
+                  "id": 2
+                }
+              }
+            },
+            "SSC000033": {
+              "fields": {
+                "code": {
+                  "rule": "required",
+                  "type": "sint32",
+                  "id": 1
+                }
+              }
+            },
+            "SSC000034": {
+              "fields": {
+                "useItem": {
+                  "type": "SCS000033",
+                  "id": 1
+                },
+                "player": {
+                  "type": "PBPlayer",
+                  "id": 2
+                },
+                "charm": {
+                  "type": "sint64",
+                  "id": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
