@@ -21,8 +21,10 @@ var boxes = []
 canvas.ondblclick = function(event){
     // console.log('db click')
     var box = new Box({
-        x:event.x - canvas.offsetLeft, 
-        y:event.y - canvas.offsetTop, 
+        x: transform.invertX(event.x), 
+        y: transform.invertY(event.y), 
+        // x: event.x,
+        // y: event.y,
         color:color(Math.random()*20|0)},
         60,
         80,
@@ -44,10 +46,12 @@ canvas.ondblclick = function(event){
           .on("start.render drag.render end.render", render)
           );
 
-//   d3.select(canvas)
-//   .call(d3.zoom()
-//   .scaleExtent([1 / 2, 4])
-//   .on("zoom", zoomed))
+  d3.select(canvas)
+  .call(d3.zoom()
+  .scaleExtent([1 / 2, 2])
+  .on('zoom', zoomed)
+//   .on('dblclick',function(){ d3.event.preventDefault();})
+ )
 
 function zoomed(){
     console.log('zoomed --->')
@@ -57,23 +61,25 @@ function zoomed(){
 
 function render() {
     stats.begin();
+    context.save();
     context.clearRect(0, 0, width, height);
+    context.beginPath()
+    //矢量聚焦
+    context.translate(transform.x, transform.y);
+    //矢量缩放
+    context.scale(transform.k, transform.k);
     for (var i = 0, n = boxes.length, box; i < n; ++i) {
       box = boxes[i];
-      context.beginPath();
-      //矢量聚焦
-      context.translate(transform.x, transform.y);
-      //矢量缩放
-      context.scale(transform.k, transform.k);
       box.create();
       context.fillStyle = color(i);
-      context.fill();
       if (box.active) {
         context.lineWidth = 2;
         context.stroke();
       }
-      stats.end();
     }
+    context.fill();
+    context.restore();
+    stats.end();
   }
 
   /**
@@ -112,8 +118,8 @@ function render() {
     downBoundary,
     leftBoundary,
     rightBoundary,
-    minPositionX,
-    minPositionY,
+    transformX = transform.invertX(d3.event.x),
+    transformY = transform.invertY(d3.event.y),
     subject;
 
     for (i = 0; i < n; ++i) {
@@ -122,18 +128,19 @@ function render() {
         leftBoundary = box.x;
         downBoundary = box.y + box.height;
         rightBoundary = box.x + box.width;
-        if(d3.event.x > leftBoundary && d3.event.x < rightBoundary && d3.event.y > upBoundary && d3.event.y < downBoundary){
+        // transform.invertX(d3.event.x)
+        if(transformX > leftBoundary && transformX < rightBoundary && transformY > upBoundary && transformY < downBoundary){
             console.log('inner');
-            if(d3.event.x - leftBoundary < rightBoundary - d3.event.x){
-                dx = transform.invertX(d3.event.x) - leftBoundary;
+            if(transformX - leftBoundary < rightBoundary - transformX){
+                dx = transformX - leftBoundary;
             }else{
-                dx = rightBoundary - transform.invertX(d3.event.x);
+                dx = rightBoundary - transformX;
             }
 
-            if(d3.event.y - upBoundary < downBoundary - d3.event.y){
-                dy = transform.invertY(d3.event.y) - upBoundary;
+            if(transformY- upBoundary < downBoundary - transformY){
+                dy = transformY - upBoundary;
             }else{
-                dy = downBoundary - transform.invertY(d3.event.y);
+                dy = downBoundary - transformY
             }
         }
         d2 = dx * dy;
