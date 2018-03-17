@@ -19,7 +19,8 @@ var color = d3.scaleOrdinal().range(d3.schemeCategory10);
 var boxes = []
 // ondblclick 在 zoomed 之前注册
 canvas.ondblclick = function(event){
-    // console.log('db click')
+    event.preventDefault();
+    console.log('db click',event);
     var box = new Box({
         x: transform.invertX(event.x), 
         y: transform.invertY(event.y), 
@@ -130,7 +131,6 @@ function render() {
         rightBoundary = box.x + box.width;
         // transform.invertX(d3.event.x)
         if(transformX > leftBoundary && transformX < rightBoundary && transformY > upBoundary && transformY < downBoundary){
-            console.log('inner');
             if(transformX - leftBoundary < rightBoundary - transformX){
                 dx = transformX - leftBoundary;
             }else{
@@ -142,6 +142,7 @@ function render() {
             }else{
                 dy = downBoundary - transformY
             }
+            console.log("find nnnnnnode")
         }
         d2 = dx * dy;
         console.log('d2 = %s, s2 = %s ',d2, s2, box)
